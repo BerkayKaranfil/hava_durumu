@@ -24,20 +24,30 @@ class HourlyWeatherSituationWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15)),
               child: Column(
                 children: [
-                  Container(
+                  Image.asset(
+                    "assets/images/cloudyweather.png",
+                    scale: 15,
+                  ),
+                  /* Container(
                     height: 60,
                     width: 78,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
-                              "assets/images/de.png",
+                              "assets/images/cloudyweather.png",
                             ),
-                            scale: 0.4,
-                            fit: BoxFit.cover)),
+                            scale: 15,
+                            )),
+                  ), */
+                  SizedBox(
+                    height: 20,
                   ),
                   Text(
                     "20º",
                     style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Text("4.00 PM")
                 ],

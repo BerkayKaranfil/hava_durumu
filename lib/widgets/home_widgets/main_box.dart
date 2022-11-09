@@ -11,22 +11,25 @@ class WeatherConfirmationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => WeatherDetailPage(),));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WeatherDetailPage(),
+            ));
       },
       child: Container(
         height: 192,
         width: 343,
         decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 0.5
-            )
-          ],
-          //  color: Color(0xff4F7FFA),
-             gradient: LinearGradient(
-                colors: [Color(0xff00D0E2), Color(0xff4F7FFA)]), 
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 0.5)
+            ],
+            //  color: Color(0xff4F7FFA),
+            gradient:
+                LinearGradient(colors: [Color(0xff00D0E2), Color(0xff4F7FFA)]),
             borderRadius: BorderRadius.circular(15)),
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -35,11 +38,17 @@ class WeatherConfirmationWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text("Monday, 20 December 2021", style: TextStyle(color: Colors.white),),
+                  Text(
+                    "Monday, 20 December 2021",
+                    style: TextStyle(color: Colors.white),
+                  ),
                   SizedBox(
                     width: 77,
                   ),
-                  Text("3:30 PM", style: TextStyle(color: Colors.white),)
+                  Text(
+                    "3:30 PM",
+                    style: TextStyle(color: Colors.white),
+                  )
                 ],
               ),
               SizedBox(
@@ -52,14 +61,26 @@ class WeatherConfirmationWidget extends StatelessWidget {
                           width: 120,
                           decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/bulut.png",), fit: BoxFit.contain), color: Colors.red,),
                         ), */
-                  Container(
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 25),
+                    child: Image.asset(
+                      "assets/images/cloudyweather.png",
+                      scale: 7,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  /* Container(
                       height: 100,
                       width: 120,
-                      child: SvgPicture.asset(
+                      child: 
+                       SvgPicture.asset(
                         "assets/images/group21.svg",
                         height: 120,
                         fit: BoxFit.fitWidth,
-                      )),
+                      ) 
+                      ), */
                   Padding(
                     padding: const EdgeInsets.only(bottom: 40),
                     child: Column(

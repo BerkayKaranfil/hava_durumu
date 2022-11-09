@@ -6,6 +6,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hava_durumu/widgets/home_widgets/daily_weather_list.dart';
+import 'package:hava_durumu/widgets/weather_widgets/graph.dart';
+import 'package:hava_durumu/widgets/weather_widgets/weather_detail.dart';
 import 'package:hava_durumu/widgets/weather_widgets/weather_page_info.dart';
 
 class WeatherDetailPage extends StatefulWidget {
@@ -55,35 +57,18 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                     style: TextStyle(fontSize: 24),
                   ),
                 ),
-                Container(
-                  height: 109,
-                  width: 343,
-                  decoration: BoxDecoration(
-                    color: Color(0xffFAFAFA),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 15,
-                      ),
-                      SvgPicture.asset("assets/images/graph.svg"),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Column(
-                        children: [
-                          Spacer(),
-                          Text("AQI - Very Good", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text("Air quality in your area for now\nvery good. No air pollution\nwhich causes various diseases."),
-                          Spacer()
-                        ],
-                      )
-                    ],
-                  ),
+                GraphWidget(),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    WeatherDetailWidget(),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    WeatherDetailWidget(),
+                  ],
                 )
               ],
             ),
@@ -93,3 +78,5 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
     );
   }
 }
+
+

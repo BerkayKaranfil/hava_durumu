@@ -10,7 +10,7 @@ class WeatherPageInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 370,
+      height: 330,
       width: 400,
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -28,7 +28,9 @@ class WeatherPageInfoWidget extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: FaIcon(
                       FontAwesomeIcons.arrowLeft,
                       color: Colors.white,
@@ -54,9 +56,13 @@ class WeatherPageInfoWidget extends StatelessWidget {
               "Mondey, 20 December 2022 - 3.30 PM",
               style: TextStyle(fontSize: 18, color: Colors.white),
             ),
-            SvgPicture.asset(
+            Image.asset("assets/images/cloudyweather.png",scale: 4,),
+            /* SvgPicture.asset(
               "assets/images/group21.svg",
               height: 170,
+            ), */
+            SizedBox(
+              height: 15,
             ),
             Text(
               "18º C",

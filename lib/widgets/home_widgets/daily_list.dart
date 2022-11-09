@@ -35,10 +35,11 @@ class DailyWeatherListWidget extends StatelessWidget {
                           color: Color(0xff9AB6FF),
                           borderRadius: BorderRadius.circular(50)),
                       child: Center(
-                          child: FaIcon(
+                          child: Image.asset("assets/images/storm.png",scale: 8,)
+                          /* FaIcon(
                         FontAwesomeIcons.cloudSun,
                         color: Colors.blue,
-                      ))),
+                      ) */)),
                   SizedBox(
                     width: 20,
                   ),
