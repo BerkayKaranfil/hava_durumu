@@ -24,6 +24,9 @@ class HourlyWeatherSituationWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15)),
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 5,
+                  ),
                   Image.asset(
                     "assets/images/cloudyweather.png",
                     scale: 15,
@@ -40,7 +43,7 @@ class HourlyWeatherSituationWidget extends StatelessWidget {
                             )),
                   ), */
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   Text(
                     "20º",

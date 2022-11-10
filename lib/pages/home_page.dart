@@ -33,12 +33,12 @@ class _HomePageState extends State<HomePage> {
           children: [
             LocationWidget(),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             WeatherConfirmationWidget(),
-            SizedBox(
+             SizedBox(
               height: 10,
-            ),
+            ), 
             Padding(
               padding: const EdgeInsets.only(right: 170),
               child: Text(

@@ -29,9 +29,9 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
       body: Column(
         children: [
           WeatherPageInfoWidget(),
-          SizedBox(
-            height: 15,
-          ),
+           SizedBox(
+            height: 5,
+          ), 
           Padding(
             padding: const EdgeInsets.only(right: 20, left: 20),
             child: Column(
@@ -44,7 +44,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 5,
                 ),
                 HourlyWeatherSituationWidget(),
                 SizedBox(
@@ -69,7 +69,19 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                     ),
                     WeatherDetailWidget(),
                   ],
-                )
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    WeatherDetailWidget(),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    WeatherDetailWidget(),
+                  ],
+                ),
               ],
             ),
           )
