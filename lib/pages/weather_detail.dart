@@ -26,69 +26,82 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
         backgroundColor: Color(0xffFFFFFF),
         toolbarHeight: 0,
       ),
-      body: Column(
-        children: [
-          WeatherPageInfoWidget(),
-           SizedBox(
-            height: 5,
-          ), 
-          Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 170),
-                  child: Text(
-                    "Hourly Weather",
-                    style: TextStyle(fontSize: 24),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                HourlyWeatherSituationWidget(),
-                SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 130),
-                  child: Text(
-                    "Information Details",
-                    style: TextStyle(fontSize: 24),
-                  ),
-                ),
-                GraphWidget(),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    WeatherDetailWidget(),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    WeatherDetailWidget(),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    WeatherDetailWidget(),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    WeatherDetailWidget(),
-                  ],
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            WeatherPageInfoWidget(),
+            SizedBox(
+              height: 15,
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.only(right: 20, left: 20),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 170),
+                    child: Text(
+                      "Hourly Weather",
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  HourlyWeatherSituationWidget(),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 130),
+                    child: Text(
+                      "Information Details",
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  GraphWidget(),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  /* SizedBox(
+                    height: 200,
+                      child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, childAspectRatio: 1,
+                        mainAxisSpacing: 5, crossAxisSpacing: 5,
+                        ),
+                    itemBuilder: (context, index) => WeatherDetailWidget(),
+                  )), */
+                   Row(
+                    children: [
+                      WeatherDetailWidget(),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      WeatherDetailWidget(),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      WeatherDetailWidget(),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      WeatherDetailWidget(),
+                    ],
+                  ),
+                   
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 }
-
-
