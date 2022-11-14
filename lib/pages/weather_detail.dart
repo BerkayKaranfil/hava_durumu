@@ -65,16 +65,18 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                   SizedBox(
                     height: 15,
                   ),
-                  /* SizedBox(
+                   SizedBox(
                     height: 200,
                       child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, childAspectRatio: 1,
                         mainAxisSpacing: 5, crossAxisSpacing: 5,
+                        mainAxisExtent: 60
                         ),
+                        itemCount: 4,
                     itemBuilder: (context, index) => WeatherDetailWidget(),
-                  )), */
-                   Row(
+                  )), 
+                   /* Row(
                     children: [
                       WeatherDetailWidget(),
                       SizedBox(
@@ -94,7 +96,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                       ),
                       WeatherDetailWidget(),
                     ],
-                  ),
+                  ), */
                    
                 ],
               ),

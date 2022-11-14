@@ -30,7 +30,7 @@ class WeatherDetailWidget extends StatelessWidget {
           Column(
             children: [
               Spacer(),
-              Text("86%"),
+              Text("86%",style: TextStyle(fontWeight: FontWeight.bold),),
               SizedBox(
                 height: 5,
               ),
