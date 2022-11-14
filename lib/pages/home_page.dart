@@ -7,7 +7,9 @@ import 'package:hava_durumu/widgets/home_widgets/daily_list.dart';
 import 'package:hava_durumu/widgets/home_widgets/daily_weather_list.dart';
 import 'package:hava_durumu/widgets/home_widgets/info_box.dart';
 import 'package:hava_durumu/widgets/home_widgets/main_box.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/weather_provider.dart';
 import '../widgets/home_widgets/location_appbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +20,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState(){
+    super.initState();
+
+    final wetProvider = Provider.of<WeatherProvider>(context, listen: false);
+    wetProvider.getWeatherData(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
