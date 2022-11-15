@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hava_durumu/models/current_weather_response.dart';
 
+import '../models/weekly_weather_response.dart';
 import '../services/api_service.dart';
 
 class WeatherProvider with ChangeNotifier {
@@ -11,6 +12,16 @@ class WeatherProvider with ChangeNotifier {
     isLoading = true;
     response = (await getCurrentData(context))!;
     isLoading = false;
+    notifyListeners();
+  }
+}
+
+
+class DailyWeatherProvider with ChangeNotifier{
+  TwoWeekWeatherResponse responseb = TwoWeekWeatherResponse();
+  
+  getDailyWeatherData(context) async {
+    responseb =(await getDailyWeatherData(context))!;
     notifyListeners();
   }
 }

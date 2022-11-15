@@ -21,12 +21,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   WeatherProvider? wetProvider;
+  DailyWeatherProvider? dailyProvider;
   @override
   void initState(){
     super.initState();
 
     wetProvider = Provider.of<WeatherProvider>(context, listen: false);
     wetProvider!.getWeatherData(context);
+
+     dailyProvider = Provider.of<DailyWeatherProvider>(context, listen: false);
+    dailyProvider!.getDailyWeatherData(context); 
   }
 
   @override
