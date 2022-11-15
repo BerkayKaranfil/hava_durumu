@@ -20,65 +20,69 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  WeatherProvider? wetProvider;
   @override
   void initState(){
     super.initState();
 
-    final wetProvider = Provider.of<WeatherProvider>(context, listen: false);
-    wetProvider.getWeatherData(context);
+    wetProvider = Provider.of<WeatherProvider>(context, listen: false);
+    wetProvider!.getWeatherData(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
-      appBar: AppBar(
+       appBar: AppBar(
+        
         toolbarHeight: 0,
         backgroundColor: Color(0xffFFFFFF),
         elevation: 0,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(right: 20, left: 20),
-        child: Column(
-          children: [
-            LocationWidget(),
-            SizedBox(
-              height: 5,
-            ),
-            WeatherConfirmationWidget(),
-             SizedBox(
-              height: 10,
-            ), 
-            Padding(
-              padding: const EdgeInsets.only(right: 170),
-              child: Text(
-                "Hourly Weather",
-                style: TextStyle(fontSize: 24),
+      ), 
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(right: 20, left: 20),
+          child: Column(
+            children: [
+              LocationWidget(),
+              SizedBox(
+                height: 5,
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            HourlyWeatherSituationWidget(),
-            SizedBox(
-              height: 6,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 280),
-              child: Text(
-                "Daily",
-                style: TextStyle(fontSize: 24),
+              WeatherConfirmationWidget(),
+               SizedBox(
+                height: 10,
+              ), 
+              Padding(
+                padding: const EdgeInsets.only(right: 170),
+                child: Text(
+                  "Hourly Weather",
+                  style: TextStyle(fontSize: 24),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            InfoWidget(),
-            SizedBox(
-              height: 10,
-            ),
-            DailyWeatherListWidget(),
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              HourlyWeatherSituationWidget(),
+              SizedBox(
+                height: 6,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 280),
+                child: Text(
+                  "Daily",
+                  style: TextStyle(fontSize: 24),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              InfoWidget(),
+              SizedBox(
+                height: 10,
+              ),
+              DailyWeatherListWidget(),
+            ],
+          ),
         ),
       ),
     );

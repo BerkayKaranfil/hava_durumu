@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hava_durumu/providers/weather_provider.dart';
+import 'package:provider/provider.dart';
 
 class WeatherPageInfoWidget extends StatelessWidget {
   const WeatherPageInfoWidget({
@@ -9,7 +11,8 @@ class WeatherPageInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Consumer<WeatherProvider>(builder: (context, mainbox, child) {
+      return Container(
       height: 300,
       width: 400,
       decoration: BoxDecoration(
@@ -65,11 +68,13 @@ class WeatherPageInfoWidget extends StatelessWidget {
               height: 15,
             ),
             Text(
-              "18º C",
+             // "18º C",
+             "${mainbox.response.toJson()["main"]["temp"].round()} º C",
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             Text(
-              "Cloudly Rain",
+              //"Cloudly Rain",
+              mainbox.response.weather![0].description!,
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             SizedBox(
@@ -98,5 +103,6 @@ class WeatherPageInfoWidget extends StatelessWidget {
         ),
       ),
     );
+    },);
   }
 }

@@ -3,7 +3,7 @@ import 'package:hava_durumu/models/current_weather_response.dart';
 
 import '../services/api_service.dart';
 
-class WeatherProvider with ChangeNotifier{
+class WeatherProvider with ChangeNotifier {
   CurrentWeatherResponse response = CurrentWeatherResponse();
   bool isLoading = false;
 

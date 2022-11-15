@@ -22,10 +22,11 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
-      appBar: AppBar(
+       appBar: AppBar(
         backgroundColor: Color(0xffFFFFFF),
         toolbarHeight: 0,
-      ),
+        elevation: 0,
+      ), 
       body: SingleChildScrollView(
         child: Column(
           children: [
