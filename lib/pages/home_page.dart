@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -47,43 +48,59 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.only(right: 20, left: 20),
           child: Column(
             children: [
-              LocationWidget(),
+              FadeInLeft(
+                duration: Duration(milliseconds: 500),
+                child: LocationWidget()),
               SizedBox(
                 height: 5,
               ),
-              WeatherConfirmationWidget(),
+              FadeInRight(
+                duration: Duration(seconds: 1),
+                child: WeatherConfirmationWidget()),
               SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 170),
-                child: Text(
-                  "Hourly Weather",
-                  style: TextStyle(fontSize: 24),
+              FadeInLeft(
+                duration: Duration(milliseconds: 500),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 170),
+                  child: Text(
+                    "Hourly Weather",
+                    style: TextStyle(fontSize: 24),
+                  ),
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
-              HourlyWeatherSituationWidget(),
+              FadeInRight(
+                duration: Duration(milliseconds: 500),
+                child: HourlyWeatherSituationWidget()),
               SizedBox(
                 height: 6,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 280),
-                child: Text(
-                  "Daily",
-                  style: TextStyle(fontSize: 24),
+              FadeInLeft(
+                duration: Duration(milliseconds: 500),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 280),
+                  child: Text(
+                    "Daily",
+                    style: TextStyle(fontSize: 24),
+                  ),
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
-              InfoWidget(),
+              FadeInRight(
+                duration: Duration(milliseconds: 500),
+                child: InfoWidget()),
               SizedBox(
                 height: 10,
               ),
-              DailyWeatherListWidget(),
+              FadeInUp(
+                duration: Duration(milliseconds: 500),
+                child: DailyWeatherListWidget()),
             ],
           ),
         ),
