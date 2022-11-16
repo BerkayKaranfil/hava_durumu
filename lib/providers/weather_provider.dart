@@ -20,7 +20,7 @@ class WeatherProvider with ChangeNotifier {
 class DailyWeatherProvider with ChangeNotifier{
   TwoWeekWeatherResponse responseb = TwoWeekWeatherResponse();
   
-  getDailyWeatherData(context) async {
+  getDailyWeatherDatab(context) async {
     responseb =(await getDailyWeatherData(context))!;
     notifyListeners();
   }

@@ -2,13 +2,13 @@
 //
 // final TwoWeekWeatherResponse = TwoWeekWeatherResponseFromJson(jsonString);
 
-import 'dart:convert';
+ import 'dart:convert';
 
 TwoWeekWeatherResponse TwoWeekWeatherResponseFromJson(String str) =>
 TwoWeekWeatherResponse.fromJson(json.decode(str));
 
 String TwoWeekWeatherResponseToJson(TwoWeekWeatherResponse data) =>
-json.encode(data.toJson());
+json.encode(data.toJson()); 
 
 class TwoWeekWeatherResponse {
 TwoWeekWeatherResponse({

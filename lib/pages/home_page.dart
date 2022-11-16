@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     wetProvider!.getWeatherData(context);
 
     dailyProvider = Provider.of<DailyWeatherProvider>(context, listen: false);
-    dailyProvider!.getDailyWeatherData(context);
+    dailyProvider!.getDailyWeatherDatab(context);
   }
 
   @override
