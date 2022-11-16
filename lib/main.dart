@@ -7,7 +7,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider<WeatherProvider>(create: (_) => WeatherProvider(),)
+    ChangeNotifierProvider<WeatherProvider>(create: (_) => WeatherProvider(),),
+    ChangeNotifierProvider<DailyWeatherProvider>(create: (_) => DailyWeatherProvider(),),
   ], child: const MyApp(),));
 }
 
