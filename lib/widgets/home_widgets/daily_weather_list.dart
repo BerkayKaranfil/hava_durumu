@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hava_durumu/models/weekly_weather_response.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/weather_provider.dart';
 
 class HourlyWeatherSituationWidget extends StatelessWidget {
   const HourlyWeatherSituationWidget({
@@ -7,7 +11,8 @@ class HourlyWeatherSituationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Consumer(builder: (context, DailyWeatherProvider value, child) {
+      return Container(
       height: 110,
       child: ListView.builder(
         itemCount: 5,
@@ -46,7 +51,8 @@ class HourlyWeatherSituationWidget extends StatelessWidget {
                     height: 15,
                   ),
                   Text(
-                    "20º",
+                    //"20º",
+                    value.responseb.list![0].main!.temp!.toInt().toString(),
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
@@ -60,5 +66,6 @@ class HourlyWeatherSituationWidget extends StatelessWidget {
         },
       ),
     );
+    },);
   }
 }

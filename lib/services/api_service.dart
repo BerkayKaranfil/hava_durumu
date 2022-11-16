@@ -29,7 +29,7 @@ Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
   TwoWeekWeatherResponse dailyWeatherResponse;
   try {
     final responseb = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?lat=40.988604&lon=28.905296&appid=d71abb38006cb001743067f2a8c8ef20&units=metric"));
+        "http://api.openweathermap.org/data/2.5/forecast?appid=d71abb38006cb001743067f2a8c8ef20&id=524901&units=metric"));
 
     dailyWeatherResponse =
         TwoWeekWeatherResponse.fromJson(jsonDecode(responseb.body));

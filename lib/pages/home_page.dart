@@ -23,26 +23,25 @@ class _HomePageState extends State<HomePage> {
   WeatherProvider? wetProvider;
   DailyWeatherProvider? dailyProvider;
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
     wetProvider = Provider.of<WeatherProvider>(context, listen: false);
     wetProvider!.getWeatherData(context);
 
-     dailyProvider = Provider.of<DailyWeatherProvider>(context, listen: false);
-    dailyProvider!.getDailyWeatherData(context); 
+    dailyProvider = Provider.of<DailyWeatherProvider>(context, listen: false);
+    dailyProvider!.getDailyWeatherData(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
-       appBar: AppBar(
-        
+      appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: Color(0xffFFFFFF),
         elevation: 0,
-      ), 
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(right: 20, left: 20),
@@ -53,9 +52,9 @@ class _HomePageState extends State<HomePage> {
                 height: 5,
               ),
               WeatherConfirmationWidget(),
-               SizedBox(
+              SizedBox(
                 height: 10,
-              ), 
+              ),
               Padding(
                 padding: const EdgeInsets.only(right: 170),
                 child: Text(
@@ -92,5 +91,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
