@@ -19,9 +19,18 @@ class WeatherProvider with ChangeNotifier {
 
 class DailyWeatherProvider with ChangeNotifier{
   TwoWeekWeatherResponse responseb = TwoWeekWeatherResponse();
+  bool isLoading = false;
+  int index = 0;
   
   getDailyWeatherDatab(context) async {
+    isLoading = true;
     responseb =(await getDailyWeatherData(context))!;
+    isLoading = false;
+    notifyListeners();
+  }
+
+  swapIndex (int indext){
+    index = indext;
     notifyListeners();
   }
 }
