@@ -61,20 +61,19 @@ class DailyWeatherListWidget extends StatelessWidget {
                                   Spacer(),
                                   Text(
                                     "Tuesday",
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(
                                     height: 5,
                                   ),
                                   Text(
-                                   // "Thunderstorm"
-                                   //value.responsec.list![index].weather![0].description.toString(),
-                                   //"${value.responsec.list![index].weather![0].description!.toString()}",
-                                    "${ value.responsec.list![index].weather![0].description.toString().split(".").last}",
-                                    style: TextStyle(
-                                      fontSize: 12
-                                    ),
-                                    ),
+                                    // "Thunderstorm"
+                                    //value.responsec.list![index].weather![0].description.toString(),
+                                    //"${value.responsec.list![index].weather![0].description!.toString()}",
+                                    "${value.responsec.list![index].weather![0].description.toString().split(".").last}",
+                                    style: TextStyle(fontSize: 12),
+                                  ),
                                   Spacer()
                                 ],
                               ),
@@ -82,19 +81,27 @@ class DailyWeatherListWidget extends StatelessWidget {
                             SizedBox(
                               width: 50,
                             ),
-                            Text(
-                              //"19º C",
-                              value.responsec.list![index].main!.temp
-                                  .toString(),
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 16),
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            FaIcon(
-                              FontAwesomeIcons.arrowRightFromBracket,
-                              size: 16,
+                            Row(
+                              children: [
+                                Text(
+                                  //"19º C",
+                                  "${value.responsec.list![index].main!.temp!.toInt()
+                                      .toString()} ºC",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16),
+                                ),
+                                SizedBox(
+                                  width: 0,
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: FaIcon(
+                                    FontAwesomeIcons.arrowRightFromBracket,
+                                    size: 16,
+                                  ),
+                                )
+                              ],
                             )
                           ],
                         ),

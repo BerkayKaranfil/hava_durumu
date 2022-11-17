@@ -8,7 +8,8 @@ import '../models/current_weather_response.dart';
 import '../models/weekly_weather_response.dart';
 import 'package:dio/dio.dart';
 
-Future<CurrentWeatherResponse?> getCurrentData(context) async {
+
+/* Future<CurrentWeatherResponse?> getCurrentData(context) async {
   CurrentWeatherResponse weatherResponse;
   try {
     final response = await http.get(Uri.parse(
@@ -23,7 +24,30 @@ Future<CurrentWeatherResponse?> getCurrentData(context) async {
   }
 
   return null;
+} */
+
+Future<CurrentWeatherResponse?> getCurrentData(context) async {
+  CurrentWeatherResponse weatherResponse;
+  try {
+    final response = await Dio().get(
+        "https://api.openweathermap.org/data/2.5/weather", queryParameters: {
+          "lat":40.992112,
+          "lon":28.903020,
+          "appid": "d71abb38006cb001743067f2a8c8ef20",
+          "units":"metric",
+        });
+
+    weatherResponse =
+        CurrentWeatherResponse.fromJson(response.data);
+    // print(response.data);
+    return weatherResponse;
+  } catch (e) {
+    log(e.toString());
+  }
+
+  return null;
 }
+
 
 Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
   TwoWeekWeatherResponse dailyWeatherResponse;
@@ -41,6 +65,10 @@ Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
 
   return null;
 }
+
+
+
+// --------------- Dio'suz Kullanım.
 
 /* Future<DailyWeatherResponse?> getDailyApiData(context) async {
   DailyWeatherResponse dailyWeatherListResponse;

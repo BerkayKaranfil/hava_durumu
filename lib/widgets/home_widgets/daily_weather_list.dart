@@ -58,7 +58,7 @@ class HourlyWeatherSituationWidget extends StatelessWidget {
                     ),
                     Text(
                       //"20º",
-                      "${value.responseb.list![index].main!.temp!.toInt().toString()} º C",
+                      "${value.responseb.list![index].main!.temp!.toInt().toString()} ºC",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
