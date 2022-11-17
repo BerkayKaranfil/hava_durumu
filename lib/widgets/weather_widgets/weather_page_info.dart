@@ -13,7 +13,7 @@ class WeatherPageInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<DailyWeatherProvider>(
+    return Consumer<HourlyWeatherProvider>(
       builder: (context, mainbox, child) {
         return Container(
           height: 300,

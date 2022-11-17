@@ -22,7 +22,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   WeatherProvider? wetProvider;
-  DailyWeatherProvider? dailyProvider;
+  HourlyWeatherProvider? dailyProvider;
+  DailyWeatherProvider? dailyListWeatherProvider;
+
   @override
   void initState() {
     super.initState();
@@ -30,8 +32,12 @@ class _HomePageState extends State<HomePage> {
     wetProvider = Provider.of<WeatherProvider>(context, listen: false);
     wetProvider!.getWeatherData(context);
 
-    dailyProvider = Provider.of<DailyWeatherProvider>(context, listen: false);
+    dailyProvider = Provider.of<HourlyWeatherProvider>(context, listen: false);
     dailyProvider!.getDailyWeatherDatab(context);
+
+    dailyListWeatherProvider =
+        Provider.of<DailyWeatherProvider>(context, listen: false);
+    dailyListWeatherProvider!.getDailyListWeatherDataa(context);
   }
 
   @override
@@ -49,14 +55,14 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               FadeInLeft(
-                duration: Duration(milliseconds: 500),
-                child: LocationWidget()),
+                  duration: Duration(milliseconds: 500),
+                  child: LocationWidget()),
               SizedBox(
                 height: 5,
               ),
               FadeInRight(
-                duration: Duration(seconds: 1),
-                child: WeatherConfirmationWidget()),
+                  duration: Duration(seconds: 1),
+                  child: WeatherConfirmationWidget()),
               SizedBox(
                 height: 10,
               ),
@@ -74,8 +80,8 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
               FadeInRight(
-                duration: Duration(milliseconds: 500),
-                child: HourlyWeatherSituationWidget()),
+                  duration: Duration(milliseconds: 500),
+                  child: HourlyWeatherSituationWidget()),
               SizedBox(
                 height: 6,
               ),
@@ -93,14 +99,13 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
               FadeInRight(
-                duration: Duration(milliseconds: 500),
-                child: InfoWidget()),
+                  duration: Duration(milliseconds: 500), child: InfoWidget()),
               SizedBox(
                 height: 10,
               ),
               FadeInUp(
-                duration: Duration(milliseconds: 500),
-                child: DailyWeatherListWidget()),
+                  duration: Duration(milliseconds: 500),
+                  child: DailyWeatherListWidget()),
             ],
           ),
         ),

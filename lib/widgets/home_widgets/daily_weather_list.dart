@@ -12,7 +12,7 @@ class HourlyWeatherSituationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, DailyWeatherProvider value, child) {
+    return Consumer(builder: (context, HourlyWeatherProvider value, child) {
       return Container(
       height: 110,
       child: ListView.builder(
