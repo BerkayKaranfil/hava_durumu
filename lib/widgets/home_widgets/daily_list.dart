@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hava_durumu/providers/weather_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:string_extensions/string_extensions.dart';
 
-extension StringExtension on String {
+/* extension StringExtension on String {
   String capitalize() {
     return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
   }
-}
+} */
 
 class DailyWeatherListWidget extends StatelessWidget {
   const DailyWeatherListWidget({
@@ -79,7 +80,7 @@ class DailyWeatherListWidget extends StatelessWidget {
                                         // "Thunderstorm"
                                         //value.responsec.list![index].weather![0].description.toString(),
                                         //"${value.responsec.list![index].weather![0].description!.toString()}",
-                                        "${value.responsec.list![index].weather![0].description.toString().split(".").last.split("_").first.capitalize()}",
+                                        "${value.responsec.list![index].weather![0].description.toString().split(".").last.split("_").first.capitalize}",
                                         style: TextStyle(fontSize: 13),
                                       ),
                                       Text(
