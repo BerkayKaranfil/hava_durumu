@@ -8,6 +8,7 @@ import '../models/current_weather_response.dart';
 import '../models/weekly_weather_response.dart';
 import 'package:dio/dio.dart';
 
+// --------------- Dio'suz Kullanım.
 
 /* Future<CurrentWeatherResponse?> getCurrentData(context) async {
   CurrentWeatherResponse weatherResponse;
@@ -30,15 +31,15 @@ Future<CurrentWeatherResponse?> getCurrentData(context) async {
   CurrentWeatherResponse weatherResponse;
   try {
     final response = await Dio().get(
-        "https://api.openweathermap.org/data/2.5/weather", queryParameters: {
-          "lat":40.992112,
-          "lon":28.903020,
+        "https://api.openweathermap.org/data/2.5/weather",
+        queryParameters: {
+          "lat": 40.992112,
+          "lon": 28.903020,
           "appid": "d71abb38006cb001743067f2a8c8ef20",
-          "units":"metric",
+          "units": "metric",
         });
 
-    weatherResponse =
-        CurrentWeatherResponse.fromJson(response.data);
+    weatherResponse = CurrentWeatherResponse.fromJson(response.data);
     // print(response.data);
     return weatherResponse;
   } catch (e) {
@@ -49,7 +50,9 @@ Future<CurrentWeatherResponse?> getCurrentData(context) async {
 }
 
 
-Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
+// --------------- Dio'suz Kullanım.
+
+/* Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
   TwoWeekWeatherResponse dailyWeatherResponse;
   try {
     final responseb = await http.get(Uri.parse(
@@ -64,9 +67,28 @@ Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
   }
 
   return null;
+} */
+
+Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
+  TwoWeekWeatherResponse dailyWeatherResponse;
+  try {
+    final responseb = await Dio().get(
+        "http://api.openweathermap.org/data/2.5/forecast",
+        queryParameters: {
+          "appid": "d71abb38006cb001743067f2a8c8ef20",
+          "id": 524901,
+          "units": "metric"
+        });
+
+    dailyWeatherResponse = TwoWeekWeatherResponse.fromJson((responseb.data));
+    // print(responseb.body);
+    return dailyWeatherResponse;
+  } catch (e) {
+    log(e.toString());
+  }
+
+  return null;
 }
-
-
 
 // --------------- Dio'suz Kullanım.
 
@@ -99,8 +121,7 @@ Future<DailyWeatherResponse?> getDailyApiData(context) async {
       },
     );
 
-    dailyWeatherListResponse =
-        DailyWeatherResponse.fromJson(responsec.data);
+    dailyWeatherListResponse = DailyWeatherResponse.fromJson(responsec.data);
     print(responsec.data);
     return dailyWeatherListResponse;
   } catch (e) {
