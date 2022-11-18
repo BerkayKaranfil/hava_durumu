@@ -1,12 +1,20 @@
 import 'dart:convert';
 import 'dart:developer';
 
+
 import 'package:hava_durumu/models/daily_weather_response.dart';
+import 'package:hava_durumu/services/logging.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/current_weather_response.dart';
 import '../models/weekly_weather_response.dart';
 import 'package:dio/dio.dart';
+
+final Dio _dio = Dio(BaseOptions(
+    baseUrl: "https://api.openweathermap.org/data/2.5/",
+    connectTimeout: 5000,
+    receiveTimeout: 3000))
+  ..interceptors.add(logging());
 
 // --------------- Dio'suz Kullanım.
 
@@ -30,7 +38,7 @@ import 'package:dio/dio.dart';
 Future<CurrentWeatherResponse?> getCurrentData(context) async {
   CurrentWeatherResponse weatherResponse;
   try {
-    final response = await Dio().get(
+    final response = await _dio.get(
         "https://api.openweathermap.org/data/2.5/weather",
         queryParameters: {
           "lat": 40.992112,
@@ -40,7 +48,7 @@ Future<CurrentWeatherResponse?> getCurrentData(context) async {
         });
 
     weatherResponse = CurrentWeatherResponse.fromJson(response.data);
-    // print(response.data);
+   // print(response.data);
     return weatherResponse;
   } catch (e) {
     log(e.toString());
@@ -48,7 +56,6 @@ Future<CurrentWeatherResponse?> getCurrentData(context) async {
 
   return null;
 }
-
 
 // --------------- Dio'suz Kullanım.
 
@@ -81,7 +88,7 @@ Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
         });
 
     dailyWeatherResponse = TwoWeekWeatherResponse.fromJson((responseb.data));
-    // print(responseb.body);
+   // print(responseb.data);
     return dailyWeatherResponse;
   } catch (e) {
     log(e.toString());
@@ -112,6 +119,7 @@ Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
 Future<DailyWeatherResponse?> getDailyApiData(context) async {
   DailyWeatherResponse dailyWeatherListResponse;
   try {
+    // final responsec = await Dio().get(                       <<----->>
     final responsec = await Dio().get(
       "https://api.openweathermap.org/data/2.5/forecast",
       queryParameters: {
