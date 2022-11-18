@@ -67,12 +67,22 @@ class DailyWeatherListWidget extends StatelessWidget {
                                   SizedBox(
                                     height: 5,
                                   ),
-                                  Text(
-                                    // "Thunderstorm"
-                                    //value.responsec.list![index].weather![0].description.toString(),
-                                    //"${value.responsec.list![index].weather![0].description!.toString()}",
-                                    "${value.responsec.list![index].weather![0].description.toString().split(".").last}",
-                                    style: TextStyle(fontSize: 12),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        // "Thunderstorm"
+                                        //value.responsec.list![index].weather![0].description.toString(),
+                                        //"${value.responsec.list![index].weather![0].description!.toString()}",
+                                        "${value.responsec.list![index].weather![0].description.toString().split(".").last.split("_").first}",
+                                        style: TextStyle(fontSize: 12),
+                                      ),
+                                      SizedBox(
+                                        width: 1,
+                                      ),
+                                      Text(
+                                          "${value.responsec.list![index].weather![0].description.toString().split(".").last.split("_").last}",
+                                          style: TextStyle(fontSize: 12),)
+                                    ],
                                   ),
                                   Spacer()
                                 ],
@@ -85,8 +95,7 @@ class DailyWeatherListWidget extends StatelessWidget {
                               children: [
                                 Text(
                                   //"19º C",
-                                  "${value.responsec.list![index].main!.temp!.toInt()
-                                      .toString()} ºC",
+                                  "${value.responsec.list![index].main!.temp!.toInt().toString()} ºC",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 16),
