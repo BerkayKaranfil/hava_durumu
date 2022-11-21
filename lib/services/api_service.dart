@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hava_durumu/models/daily_weather_response.dart';
 import 'package:hava_durumu/services/logging.dart';
 import 'package:http/http.dart' as http;
@@ -48,7 +48,31 @@ Future<CurrentWeatherResponse?> getCurrentData(context) async {
         });
 
     weatherResponse = CurrentWeatherResponse.fromJson(response.data);
-   // print(response.data);
+    // print(response.data);
+    switch (response.statusCode) {
+      case 200:
+        {
+          Fluttertoast.showToast(
+            msg: "Status Code:200, Login successful",
+          );
+        }
+        break;
+      case 400:
+        {
+          Fluttertoast.showToast(
+            msg: "Status Code:400, Client Errors",
+          );
+        }
+        break;
+      case 500:
+        {
+          Fluttertoast.showToast(
+            msg: "Status Code:500, Server Errors",
+          );
+        }
+        break;
+      default:
+    }
     return weatherResponse;
   } catch (e) {
     log(e.toString());
@@ -88,7 +112,7 @@ Future<TwoWeekWeatherResponse?> getDailyWeatherData(context) async {
         });
 
     dailyWeatherResponse = TwoWeekWeatherResponse.fromJson((responseb.data));
-   // print(responseb.data);
+    // print(responseb.data);
     return dailyWeatherResponse;
   } catch (e) {
     log(e.toString());
