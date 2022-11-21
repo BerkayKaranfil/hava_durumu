@@ -89,26 +89,32 @@ class WeatherConfirmationWidget extends StatelessWidget {
                       ), */
                       Padding(
                         padding: const EdgeInsets.only(bottom: 40),
-                        child: Column(
-                          children: [
-                            Text(
-                              // "18º C",
-                              "${mainbox.response.toJson()["main"]["temp"].round()} º C",
-                              //"${mainbox.response.main!.temp.toString()} º C",
+                        child: Container(
+                          width: 199,
+                          child: Column(
+                            children: [
+                              Text(
+                                // "18º C",
+                                "${mainbox.response.toJson()["main"]["temp"].round()} º C",
+                                //"${mainbox.response.main!.temp.toString()} º C",
 
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                             // "Cloudy Rain",
-                             mainbox.response.weather![0].description!,
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 25),
-                            )
-                          ],
+                                style:
+                                    TextStyle(color: Colors.white, fontSize: 18),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              FittedBox(
+                                fit: BoxFit.fitWidth,
+                                child: Text(
+                                 // "Cloudy Rain",
+                                 mainbox.response.weather![0].description!,
+                                  style:
+                                      TextStyle(color: Colors.white, fontSize: 25),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],
